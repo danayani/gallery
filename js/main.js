@@ -6,6 +6,12 @@ console.log('Starting up');
 
 function initPage(){
     renderPortfolio()
+    addEventListeners()
+}
+
+function addEventListeners() {
+  const projs = getProjs()
+  $('#portfolioModal1').on('click', renderModal(projs[0]))
 }
 
 function renderPortfolio() {
@@ -18,14 +24,14 @@ function renderPortfolio() {
           <h4>${proj.name}</h4>
           <p class="text-muted">${proj.title}</p>
         </div>
-      </div>
-      <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="fa fa-plus fa-3x"></i>
-            </div>
-          </div>`
+      </div>`
+      // <div class="col-md-4 col-sm-6 portfolio-item">
+      //   <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+      //     <div class="portfolio-hover">
+      //       <div class="portfolio-hover-content">
+      //         <i class="fa fa-plus fa-3x"></i>
+      //       </div>
+      //     </div>
 
 
 
@@ -35,17 +41,21 @@ function renderPortfolio() {
    
 }
 
-function renderModal() {
-    var projs = getProjs()
+function renderModal(proj) {
+    // var projs = getProjs()
 
-    var strHtml =`
-    <h2>${proj.name}</h2>
-                <p class="item-intro text-muted">${proj.title}</p>
-                <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                <p>${proj.desc}</p>
-                <ul class="list-inline">
-                  <li>Date: January 2017</li>
-                  <li>Client: Threads</li>
-                  <li>Category: Illustration</li>
-                </ul>`
+
+    // var elModal = document.querySelector('.modal-body')
+    var $elModal = $('.modal-body')
+    
+    $elModal.children('.modal-project-name').text(proj.name)
+    $elModal.children('.item-intro').text(proj.title)
+    // $elModal.children('.img-fluid').src(proj.name)
+    $elModal.children('.modal-project-desc').text(proj.desc)
+    var strDate = proj.publishedAt
+    $('.date-month-year').text(strDate)
+    
+    
+    // var strHtml =``
+    
 }

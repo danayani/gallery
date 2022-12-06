@@ -23,13 +23,13 @@ function _createProj(id, name, title, desc, url, publishedAt) {
 }
 
 function _createProjs() {
-    var pacmanDate = '26-02-2012'
+    var pacmanDate = '22-11-2022'
     pacmanDate = pacmanDate.split('-')
     pacmanDate = new Date(pacmanDate[2], pacmanDate[1] - 1, pacmanDate[0]).getTime()
 
     var projs = [
         _createProj('pacman', 'Pacman', 'Eat all the ghost', 'Old but Gold, kind od game',
-         'https://danayani.github.io/pacman/','pacmanDate')
+         'https://danayani.github.io/pacman/',pacmanDate)
 
     ]
 
